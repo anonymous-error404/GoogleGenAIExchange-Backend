@@ -5,7 +5,10 @@ class EmbeddingsService {
 
   async get_embeddings(text) {
 
+    console.log(text);
+
     let material = text;
+    console.log(text)
 
     if (material.length > 150) {
 

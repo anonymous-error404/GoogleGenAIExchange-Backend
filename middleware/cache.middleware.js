@@ -14,6 +14,9 @@ async function mountCacheService(req, res, next) {
     // 1 LLM call → get context
     const context_json = await llmService.getContext(req.body.content);
     const embeddings = await embeddingsService.get_embeddings(context_json.context);
+    if(embeddings.error){
+      return res.status(500).json({ error: "Error generating embeddings", message: embeddings.error });
+    }
     const cachedContextResponse = await CacheService.getFromContextCache(embeddings);
 
     if (cachedContextResponse) {
