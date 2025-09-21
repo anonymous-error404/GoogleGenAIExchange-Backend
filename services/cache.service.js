@@ -42,7 +42,7 @@ class CacheService {
 
                 const similarity = this.getCosineSimilarity(key, JSON.parse(k));
                 console.log("similarity : ", similarity);
-                if (similarity >= 0.85) {
+                if (similarity >= 0.88) {
                     console.log("Found similar key in context cache with similarity:", similarity);
                     similar_key = k; // Use the similar key found
                     break;
