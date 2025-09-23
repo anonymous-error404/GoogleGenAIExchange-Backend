@@ -8,7 +8,7 @@ router.use(express.json());
 router.use(mountCacheService);
 
 router.post('/', async (req, res) => {
-  const response = await verificationController(req.body.content, req.body.context, req.body.language, req.body.embeddings);
+  const response = await verificationController(req.body.content, req.body.context, req.body.language, req.body.embeddings, req.body.date);
 
   if (!response.error)
     res.status(200).json({ 'response': response });
