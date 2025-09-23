@@ -8,6 +8,8 @@ router.use(express.json());
 router.use(mountCacheService);
 
 router.post('/', async (req, res) => {
+
+  console.log(req.body.date);
   const response = await verificationController(req.body.content, req.body.context, req.body.language, req.body.embeddings, req.body.date);
 
   if (!response.error)
