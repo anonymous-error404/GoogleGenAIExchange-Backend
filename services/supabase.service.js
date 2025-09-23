@@ -5,10 +5,11 @@ class SupabaseService {
     async fetchSimilarDocuments(embeddings, matchCount = 5, threshold = 0.3, tweet_date) {
 
         const { data, error } = await supabaseClient.rpc('match_documents', {
-            p_match_count: matchCount,
             p_query_embedding: embeddings,
-            p_similarity_threshold: threshold,
-            p_target_date: tweet_date
+            p_target_date: tweet_date,
+            p_match_count: matchCount,
+            p_similarity_threshold: threshold
+            
         });
 
         console.log('Supabase RPC result:', { data, error });
