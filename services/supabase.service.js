@@ -4,12 +4,15 @@ class SupabaseService {
 
     async fetchSimilarDocuments(embeddings, matchCount = 5, threshold = 0.3, tweet_date) {
 
+        const formatted_date = formatToPostgresTimestamp(tweet_date);
+        console.log(formatted_date);
+
         try{
         const { data, error } = await supabaseClient.rpc('match_documents', {
             p_query_embedding: embeddings,
             p_match_count: matchCount,
             p_similarity_threshold: threshold,
-            p_start_date: formatToPostgresTimestamp(tweet_date)
+            p_start_date: formatted_date
         });
 
             console.log('Supabase RPC result:', { data, error });   
