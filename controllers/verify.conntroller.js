@@ -9,14 +9,14 @@ async function verify_tweet(tweet_content, tweet_context, tweet_language, embedd
 
   try {
 
-    const references = await supabaseService.fetchSimilarDocuments(embeddings = embeddings, tweet_date = tweet_date) || [];
+    const references = await supabaseService.fetchSimilarDocuments(embeddings, 5, 0.3, tweet_date) || [];
 
     const response = await LLMService.verifyContext(tweet_context, tweet_language, JSON.stringify(references));
     CacheService.setToContentCache(tweet_content, response);
     CacheService.setToContextCache(embeddings, response);
 
     return response;
-    
+
   } catch (error) {
     return { error };
   }
