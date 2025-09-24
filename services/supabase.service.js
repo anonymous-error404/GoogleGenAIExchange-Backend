@@ -21,7 +21,7 @@ class SupabaseService {
         }
     }
 
-    function formatToPostgresTimestamp(date) {
+  formatToPostgresTimestamp(date) {
       const pad = (num, size = 2) => String(num).padStart(size, '0');
     
       const year = date.getUTCFullYear();
