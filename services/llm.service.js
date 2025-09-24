@@ -45,6 +45,7 @@ class LLMService {
                   3.  **Check for Misinformation Tropes:** Look for signs like emotional language, calls to outrage, lack of sources, or use of buzzwords.
                   4.  **Synthesize Findings:** Based on your analysis, generate a JSON object with your assessment. Provide references to your response from the reference content(if any).
                   5. **Back Your Verdict with Evidence:** Ensure your verdict is supported by specific evidence from the reference content(if any) or your knowledge base. Feel free to mention news headlines, reference links, etc.
+                  6. **If completely unrelated references are provided, then completely ignore them and do not mention anything about it in your response.
 
                   **Output Format:**
                   Respond ONLY with a valid JSON object following this schema.
