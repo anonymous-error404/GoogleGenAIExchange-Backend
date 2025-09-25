@@ -26,6 +26,9 @@ connectDB();
 // test redis
 redisTest();
 
+// Trust the first proxy (needed for X-Forwarded-For headers)
+app.set('trust proxy', 1);
+
 // rate limiting - more lenient for development
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
