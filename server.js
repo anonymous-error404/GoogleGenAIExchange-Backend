@@ -40,7 +40,8 @@ app.use(cors({
     const allowedOrigins = [
       'http://localhost:5173',
       'http://127.0.0.1:5173',
-      'http://[::1]:5173'
+      'http://[::1]:5173',
+      "https://googlegenaiexchange-backend-132180526643.us-central1.run.app",
     ];
     
     if (allowedOrigins.indexOf(origin) !== -1) {
