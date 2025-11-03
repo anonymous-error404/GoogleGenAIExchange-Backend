@@ -5,27 +5,28 @@ const BUCKET_NAME = 'twittle-demo-app-media-storage';
 
 // Initialize Google Cloud Storage
 // Supports both keyFilename and credentials JSON from environment variable
-let storageConfig = {};
+// let storageConfig = {};
 
-if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-  // Path to service account key file
-  storageConfig.keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-}
+// if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+//   // Path to service account key file
+//   storageConfig.keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+// }
 
-if (process.env.GCS_CREDENTIALS_JSON) {
-  // JSON credentials as string (useful for production environments)
-  try {
-    storageConfig.credentials = JSON.parse(process.env.GCS_CREDENTIALS_JSON);
-  } catch (error) {
-    console.error('Error parsing GCS_CREDENTIALS_JSON:', error);
-  }
-}
+// if (process.env.GCS_CREDENTIALS_JSON) {
+//   // JSON credentials as string (useful for production environments)
+//   try {
+//     storageConfig.credentials = JSON.parse(process.env.GCS_CREDENTIALS_JSON);
+//   } catch (error) {
+//     console.error('Error parsing GCS_CREDENTIALS_JSON:', error);
+//   }
+// }
 
-if (process.env.GCS_PROJECT_ID) {
-  storageConfig.projectId = process.env.GCS_PROJECT_ID;
-}
+// if (process.env.GCS_PROJECT_ID) {
+//   storageConfig.projectId = process.env.GCS_PROJECT_ID;
+// }
 
-const storage = new Storage(storageConfig);
+//for dev pass storageConfig to Storage() 
+const storage = new Storage();
 
 /**
  * Upload a file to Google Cloud Storage
