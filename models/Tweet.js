@@ -11,7 +11,6 @@ const tweetSchema = new mongoose.Schema({
     required: function() {
       return !this.imageUrl; // Only required if no image
     },
-    maxlength: 280,
     default: ''
   },
   imageUrl: {
